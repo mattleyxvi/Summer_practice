@@ -44,18 +44,18 @@ import coil.compose.rememberAsyncImagePainter
 public var HeroesPool = listOf(
     Hero("IronMan",
         "https://toplogos.ru/images/logo-iron-man.jpg",
-        "https://klike.net/uploads/posts/2023-01/1674375630_3-37.jpg",
-        "I'm Iron man"),
+        "https://809620.selcdn.ru/wallpaperio-net/wallpapers/full/cbe59912c2c7b5764b81f9978c6014b2.jpg",
+        "Рекорды устанавливают для того, чтобы их можно было побить!"),
 
     Hero("SpiderMan",
         "https://i.pinimg.com/736x/39/dc/84/39dc84dc1531d54365ce0faf105e6ffa--spiderman-hoodie-spiderman-logo.jpg",
-        "https://www.xtrafondos.com/wallpapers/vertical/el-hombre-arana-en-nueva-york-6194.jpg",
-        "I'm Spider man"),
+        "https://809620.selcdn.ru/wallpaperio-net/wallpapers/full/96fb2c30a390c18ed981aae71784ff42.jpg",
+        "У всех есть тайны. Что-то скрываем мы, что-то скрывают от нас."),
 
     Hero("Hulk",
-        "https://cdn.dribbble.com/users/1534214/screenshots/3507418/superheroes-02.png",
-        "https://i.pinimg.com/originals/fe/b4/de/feb4de4d826e02a603aa4ea830447a55.jpg",
-        "I'm Hulk"))
+        "https://w0.peakpx.com/wallpaper/964/303/HD-wallpaper-logo-hulk-avengers-thumbnail.jpg",
+        "https://809620.selcdn.ru/wallpaperio-net/wallpapers/full/c491de6db0272c259224e164f8b7de84.jpg",
+        "Когда я чего-то не понимаю, захожу в тупик — во мне Халк просыпается, и я бешусь."))
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,12 +95,12 @@ class MainActivity : ComponentActivity() {
 
                         Image(
                             painter = rememberAsyncImagePainter(
-                                model = hero.logo, imageLoader = ImageLoader(
+                                model = hero.avatar, imageLoader = ImageLoader(
                                     LocalContext.current
                                 )
                             ),
 
-                            contentDescription = "logotype",
+                            contentDescription = "avatar",
                             modifier = Modifier.size(700.dp), alignment = Alignment.Center
                         )
                     }
@@ -137,7 +137,7 @@ class MainActivity : ComponentActivity() {
                 fontSize = 45.sp,
                 fontStyle = FontStyle.Normal,
                 fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Cursive
+                fontFamily = FontFamily.Default
             )
 
             HeroesList()
@@ -150,17 +150,17 @@ class MainActivity : ComponentActivity() {
         var isClicked by mutableStateOf(false)
         Image(
             painter = rememberAsyncImagePainter(
-                model = hero.avatar, imageLoader = ImageLoader(
+                model = hero.logo, imageLoader = ImageLoader(
                     LocalContext.current
                 )
             ),
 
-            contentDescription = "avatar",
+            contentDescription = "logotype",
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize(), alignment = Alignment.Center)
 
         IconButton(onClick = { isClicked = true }, modifier = Modifier.size(70.dp)) {
-            Icon(Icons.Default.Close, contentDescription = "Backing", tint = Color.Gray)
+            Icon(Icons.Default.Close, contentDescription = "Return", tint = Color.Gray)
             if (isClicked) {
                 setContent {
                     MainScreen()
